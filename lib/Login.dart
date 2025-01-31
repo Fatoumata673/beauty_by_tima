@@ -93,16 +93,6 @@ class _LoginState extends State<Login> {
                     backgroundColor: WidgetStateProperty.all(Colors.indigo[50]),
                   ),
                 ),
-                Row(
-                  children: [
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Forget Password ?',
-                          style: TextStyle(color: Colors.red),
-                        ))
-                  ],
-                )
               ],
             ),
           ),

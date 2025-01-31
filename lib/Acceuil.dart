@@ -1,4 +1,5 @@
 import 'package:beauty_by_tima/main.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,49 +9,71 @@ class Acceuil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Container(),
-    );
-  }
-}
-
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({super.key});
-
-  Size get preferredSize => new Size.fromHeight(50);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.favorite_outline_rounded,
-            color: Colors.grey[800],
-            size: 20,
-          ),
-          onPressed: null,
-        ),
         title: Text(
-          'Explore',
-          style: GoogleFonts.lato(
-            color: Colors.black,
-            fontSize: 48,
-            fontWeight: FontWeight.w700,
-          ),
+          'ACCEUIL',
+          style: TextStyle(color: Colors.black),
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.place,
-              color: Colors.grey[800],
-              size: 100,
-            ),
-            onPressed: null,
-          ),
-        ],
+        backgroundColor: const Color.fromARGB(255, 214, 120, 151),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 245, 245, 245),
       ),
+      drawer: Drawer(
+        width: 210,
+        elevation: 0,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text('Tima'),
+              accountEmail: Text('tima@gmail.com'),
+              currentAccountPicture: CircleAvatar(
+                child: ClipOval(
+                  child: Image.asset(
+                    'assets/images/prfl.jpg',
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/afro.jpg'),
+                      fit: BoxFit.cover)),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.home,
+                color: Colors.teal,
+                size: 25,
+              ),
+              title: Text('home'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.login,
+                color: Colors.teal,
+                size: 25,
+              ),
+              title: Text('Déconnexion'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.account_circle,
+                color: Colors.teal,
+                size: 25,
+              ),
+              title: Text('profile'),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
+      body: Container(),
     );
   }
 }
